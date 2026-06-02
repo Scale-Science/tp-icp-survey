@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toothpod — Help us figure out who Toothpod really helps</title>
+    <meta
+      name="description"
+      content="A quick 3-minute, 8-question survey to help the Toothpod team understand who we help and how we can help more people like you."
+    />
+    <meta name="robots" content="noindex" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <!-- Persistent top bar: brand + progress -->
+      <div class="topbar">
+        <a class="brand" href="https://toothpod.co/" target="_blank" rel="noopener" aria-label="Toothpod">
+          <img class="brand-logo" src="assets/toothpod-logo-light.svg" alt="Toothpod" width="160" height="62" />
+        </a>
+        <div class="progress" role="group" aria-label="Survey progress">
+          <div class="progress-meta">
+            <span id="progress-label">Question 1 of 8</span>
+            <span class="progress-pct" id="progress-pct">12%</span>
+          </div>
+          <div
+            class="progress-track"
+            role="progressbar"
+            aria-valuemin="0"
+            aria-valuemax="8"
+            aria-valuenow="1"
+            aria-label="Questions completed"
+          >
+            <div class="progress-fill" id="progress-fill"></div>
+          </div>
+        </div>
+      </div>
+
+      <form id="survey" novalidate>
+        <!-- ===== Step 1 — Welcome + Q1 ===== -->
+        <section class="step" data-step="0">
+          <header class="hero">
+            <h1>Help us figure out who Toothpod really helps.</h1>
+            <p class="lede">
+              We are incredibly grateful that you chose Toothpod to help improve your oral health.
+              Below are <strong>8 questions</strong> &mdash; mostly short written answers &mdash; that take about
+              <strong>3 minutes</strong>, which we&rsquo;ll read to better understand how we can help more people like you.
+            </p>
+            <div class="meta">
+              <span class="meta-pill">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <circle cx="12" cy="12" r="9" />
+                  <path d="M12 7v5l3 2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                About 3 minutes
+              </span>
+              <span class="meta-pill">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M5 4h14v16l-7-3-7 3z" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                8 questions
+              </span>
+            </div>
+            <p class="lede-soft">
+              The more specific you are, the more useful your answer is to us. Tell us the truth, even if it&rsquo;s not
+              what you think we want to hear.
+            </p>
+          </header>
+
+          <fieldset class="q" data-q="q1_main_reason">
+            <legend><span class="q-num">Q1</span>What is the MAIN reason you bought Toothpod?</legend>
+            <div class="options">
+              <label class="opt"><input type="radio" name="q1_main_reason" value="Whiten teeth / reduce staining" /><span>Whiten teeth / reduce staining</span></label>
+              <label class="opt"><input type="radio" name="q1_main_reason" value="Prevent cavities / enamel support" /><span>Prevent cavities / enamel support</span></label>
+              <label class="opt"><input type="radio" name="q1_main_reason" value="Gum health" /><span>Gum health</span></label>
+              <label class="opt"><input type="radio" name="q1_main_reason" value="Fresher breath" /><span>Fresher breath</span></label>
+              <label class="opt"><input type="radio" name="q1_main_reason" value="Prevent dry mouth" /><span>Prevent dry mouth</span></label>
+              <label class="opt opt-other">
+                <input type="radio" name="q1_main_reason" value="__other__" data-other-target="q1_main_reason_other" />
+                <span>Something else</span>
+                <input type="text" class="other-input" name="q1_main_reason_other" placeholder="Tell us what it was&hellip;" aria-label="Your other reason" />
+              </label>
+            </div>
+          </fieldset>
+        </section>
+
+        <!-- ===== Step 2 — Q2 ===== -->
+        <section class="step" data-step="1" hidden>
+          <fieldset class="q" data-q="q2_trigger">
+            <legend><span class="q-num">Q2</span>What was going on in your life that made you start looking for something like Toothpod?</legend>
+            <p class="q-help">
+              Think back to the weeks or months before you bought Toothpod. What was happening? Was there a specific
+              moment, conversation, dentist visit, photo of yourself, or piece of information that pushed you to look for
+              a solution? Be as specific as you can &mdash; a real story is more useful to us than a polished answer.
+            </p>
+            <p class="q-example">
+              <b>Example of the kind of detail that helps:</b> &ldquo;I&rsquo;m 38 and I started drinking 3-4 coffees a
+              day when my second kid was born. I noticed my teeth were getting yellow in photos and my dentist mentioned
+              enamel wear at my last cleaning. I&rsquo;d tried whitening strips and they made my teeth hurt, so I started
+              searching for something gentler.&rdquo;
+            </p>
+            <textarea name="q2_trigger" placeholder="Tell us your story&hellip;"></textarea>
+          </fieldset>
+        </section>
+
+        <!-- ===== Step 3 — Q3 ===== -->
+        <section class="step" data-step="2" hidden>
+          <fieldset class="q" data-q="q3_fear">
+            <legend><span class="q-num">Q3</span>Before you found Toothpod, what was your biggest fear or frustration about your oral health?</legend>
+            <p class="q-help">
+              What kept coming back to bother you? It could be a specific worry (cavities, sensitivity, breath, staining,
+              gum recession), an embarrassment (avoiding photos, covering your mouth when you laugh), a frustration with
+              your routine (brushing isn&rsquo;t enough, you can&rsquo;t brush at work), or something else entirely. Tell
+              us in your own words.
+            </p>
+            <textarea name="q3_fear" placeholder="What worried or frustrated you most&hellip;"></textarea>
+          </fieldset>
+        </section>
+
+        <!-- ===== Step 4 — Q4 ===== -->
+        <section class="step" data-step="3" hidden>
+          <fieldset class="q" data-q="q4_tried">
+            <legend><span class="q-num">Q4</span>Before Toothpod, what did you try to solve that problem &mdash; and why didn&rsquo;t it work?</legend>
+            <p class="q-help">
+              List anything you tried &mdash; better brushing, mouthwash, whitening strips, hydroxyapatite toothpaste,
+              regular gum, water flosser, oil pulling, a different dentist, just hoping it would get better, or simply
+              doing nothing. Then tell us why each one fell short. Was it too much hassle? Did it hurt? Did it not
+              actually work? Did you not trust it? Could you not stick with it?
+            </p>
+            <textarea name="q4_tried" placeholder="What you tried, and why it fell short&hellip;"></textarea>
+          </fieldset>
+        </section>
+
+        <!-- ===== Step 5 — Q5 (multi-select, up to 2) ===== -->
+        <section class="step" data-step="4" hidden>
+          <fieldset class="q" data-q="q5_convinced" data-max="2">
+            <legend><span class="q-num">Q5</span>What convinced you that Toothpod would work for you?</legend>
+            <span class="q-hint">Choose up to 2.</span>
+            <div class="options">
+              <label class="opt"><input type="checkbox" name="q5_convinced" value="The science behind the ingredients (hydroxyapatite, xylitol, etc.)" /><span>The science behind the ingredients (hydroxyapatite, xylitol, etc.)</span></label>
+              <label class="opt"><input type="checkbox" name="q5_convinced" value="A dentist or hygienist backing or recommending it" /><span>A dentist or hygienist backing or recommending it</span></label>
+              <label class="opt"><input type="checkbox" name="q5_convinced" value="Clinical research & statistics" /><span>Clinical research &amp; statistics</span></label>
+              <label class="opt"><input type="checkbox" name="q5_convinced" value="How clearly the brand explained what it does and why it works" /><span>How clearly the brand explained what it does and why it works</span></label>
+              <label class="opt opt-other">
+                <input type="checkbox" name="q5_convinced" value="__other__" data-other-target="q5_convinced_other" />
+                <span>Something else</span>
+                <input type="text" class="other-input" name="q5_convinced_other" placeholder="Tell us what convinced you&hellip;" aria-label="What else convinced you" />
+              </label>
+            </div>
+          </fieldset>
+        </section>
+
+        <!-- ===== Step 6 — Q6 ===== -->
+        <section class="step" data-step="5" hidden>
+          <fieldset class="q" data-q="q6_disappointment">
+            <legend><span class="q-num">Q6</span>How would you feel if you could no longer buy Toothpod?</legend>
+            <div class="options">
+              <label class="opt"><input type="radio" name="q6_disappointment" value="Very disappointed" /><span>Very disappointed</span></label>
+              <label class="opt"><input type="radio" name="q6_disappointment" value="Somewhat disappointed" /><span>Somewhat disappointed</span></label>
+              <label class="opt"><input type="radio" name="q6_disappointment" value="Not disappointed — it's not really that useful to me" /><span>Not disappointed &mdash; it&rsquo;s not really that useful to me</span></label>
+              <label class="opt"><input type="radio" name="q6_disappointment" value="I'm not sure yet" /><span>I&rsquo;m not sure yet</span></label>
+            </div>
+          </fieldset>
+        </section>
+
+        <!-- ===== Step 7 — Q7 ===== -->
+        <section class="step" data-step="6" hidden>
+          <fieldset class="q" data-q="q7_age">
+            <legend><span class="q-num">Q7</span>What is your age?</legend>
+            <div class="options">
+              <label class="opt"><input type="radio" name="q7_age" value="18–24" /><span>18&ndash;24</span></label>
+              <label class="opt"><input type="radio" name="q7_age" value="25–34" /><span>25&ndash;34</span></label>
+              <label class="opt"><input type="radio" name="q7_age" value="35–44" /><span>35&ndash;44</span></label>
+              <label class="opt"><input type="radio" name="q7_age" value="45–54" /><span>45&ndash;54</span></label>
+              <label class="opt"><input type="radio" name="q7_age" value="55+" /><span>55+</span></label>
+            </div>
+          </fieldset>
+        </section>
+
+        <!-- ===== Step 8 — Q8 ===== -->
+        <section class="step" data-step="7" hidden>
+          <fieldset class="q" data-q="q8_identity">
+            <legend><span class="q-num">Q8</span>How do you identify?</legend>
+            <div class="options">
+              <label class="opt"><input type="radio" name="q8_identity" value="Woman" /><span>Woman</span></label>
+              <label class="opt"><input type="radio" name="q8_identity" value="Man" /><span>Man</span></label>
+              <label class="opt opt-other">
+                <input type="radio" name="q8_identity" value="__other__" data-other-target="q8_identity_other" />
+                <span>Non-binary / prefer to self-describe</span>
+                <input type="text" class="other-input" name="q8_identity_other" placeholder="Prefer to self-describe (optional)&hellip;" aria-label="Self-describe" />
+              </label>
+              <label class="opt"><input type="radio" name="q8_identity" value="Prefer not to say" /><span>Prefer not to say</span></label>
+            </div>
+          </fieldset>
+        </section>
+
+        <!-- ===== Navigation ===== -->
+        <div class="actions">
+          <button type="button" class="nav-back" id="nav-back" hidden>Back</button>
+          <button type="button" class="skip-link" id="skip-link" hidden>Skip this question</button>
+          <span class="spacer"></span>
+          <button type="submit" class="submit-btn" id="nav-next">
+            <span class="submit-label">Continue</span>
+            <span class="submit-spinner" aria-hidden="true"></span>
+          </button>
+        </div>
+        <p class="error" id="form-error" role="alert"></p>
+      </form>
+
+      <!-- ===== Thanks ===== -->
+      <section class="thanks" id="thanks" hidden>
+        <div class="thanks-card">
+          <span class="thanks-mark" aria-hidden="true">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
+              <circle cx="28" cy="28" r="28" fill="#edf5f5" />
+              <path d="M17 29l7 7 15-16" stroke="#108474" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+          <h2>Thank you &mdash; this is genuinely useful.</h2>
+          <p>
+            Your answers help us understand who Toothpod really helps so we can reach more people like you. We read every
+            response.
+          </p>
+          <a class="thanks-link" href="https://toothpod.co/" target="_blank" rel="noopener">Back to toothpod.co &rarr;</a>
+        </div>
+      </section>
+
+      <footer class="foot">&copy; <span id="year"></span> Toothpod</footer>
+    </main>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
