@@ -55,61 +55,55 @@ body {
   padding: 28px 20px 80px;
 }
 
-/* ===== Top bar: logo + progress (persistent across steps) ===== */
+/* ===== Top bar: full-width sticky header (logo + label + progress) ===== */
 .topbar {
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 20;
+  width: 100%;
+  background: linear-gradient(180deg, #023a6e 0%, #012a50 100%);
+  box-shadow: 0 4px 16px rgba(0, 12, 28, 0.35);
+}
+
+.topbar-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 14px 20px;
   display: flex;
-  flex-direction: column;
-  gap: 14px;
-  padding: 16px 0 18px;
-  margin-bottom: 8px;
-  background: linear-gradient(180deg, rgba(2, 39, 76, 0.96) 0%, rgba(2, 39, 76, 0.82) 70%, transparent 100%);
-  backdrop-filter: blur(4px);
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
   text-decoration: none;
-  align-self: flex-start;
 }
 
 .brand-logo {
   display: block;
   width: auto;
-  height: 38px;
-  max-width: 160px;
+  height: 34px;
+  max-width: 150px;
 }
 
-.progress {
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-}
-
-.progress-meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
+.progress-label {
   font-size: 12.5px;
   font-weight: 600;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.78);
-}
-
-.progress-pct {
+  color: rgba(255, 255, 255, 0.8);
   font-variant-numeric: tabular-nums;
-  color: var(--tp-teal);
+  white-space: nowrap;
 }
 
+/* Full-bleed progress bar spanning the entire page width */
 .progress-track {
   position: relative;
+  width: 100%;
   height: 8px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.14);
   overflow: hidden;
 }
 
@@ -117,7 +111,6 @@ body {
   position: absolute;
   inset: 0 auto 0 0;
   width: 0%;
-  border-radius: 999px;
   background: linear-gradient(90deg, var(--tp-teal-deep), var(--tp-teal));
   transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -476,28 +469,6 @@ body {
   display: none;
 }
 
-.skip-link {
-  appearance: none;
-  cursor: pointer;
-  font: inherit;
-  font-size: 14px;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.62);
-  background: transparent;
-  border: 0;
-  padding: 8px 4px;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-.skip-link:hover {
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.skip-link[hidden] {
-  display: none;
-}
-
 .spacer {
   flex: 1;
 }
@@ -623,6 +594,14 @@ body {
 @media (max-width: 540px) {
   .page {
     padding: 16px 14px 60px;
+  }
+
+  .topbar-inner {
+    padding: 12px 14px;
+  }
+
+  .brand-logo {
+    height: 30px;
   }
 
   .q {

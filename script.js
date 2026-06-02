@@ -23,14 +23,12 @@
   const steps = Array.from(form.querySelectorAll(".step"));
   const total = steps.length; // 8 questions
   const backBtn = document.getElementById("nav-back");
-  const skipBtn = document.getElementById("skip-link");
   const nextBtn = document.getElementById("nav-next");
   const nextLabel = nextBtn.querySelector(".submit-label");
   const errorEl = document.getElementById("form-error");
   const thanksEl = document.getElementById("thanks");
   const progressFill = document.getElementById("progress-fill");
   const progressLabel = document.getElementById("progress-label");
-  const progressPct = document.getElementById("progress-pct");
   const progressBar = document.querySelector(".progress-track");
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
@@ -41,15 +39,17 @@
   const cssEsc = window.CSS && CSS.escape ? CSS.escape.bind(CSS) : (s) => s;
 
   // Question metadata mirrors the DOM order — one question per step.
+  // All questions are optional — respondents can move forward without
+  // answering. Partial answers are still captured per step.
   const QUESTIONS = [
-    { name: "q1_main_reason", label: "Q1 · Main reason for buying", type: "radio", required: true, hasOther: true, otherKey: "q1_main_reason_other", otherLabel: "Other", otherRequiresText: true },
-    { name: "q2_trigger", label: "Q2 · What was going on in life", type: "text", required: true, skippable: true },
-    { name: "q3_fear", label: "Q3 · Biggest fear / frustration", type: "text", required: true, skippable: true },
-    { name: "q4_tried", label: "Q4 · What they tried & why it failed", type: "text", required: true, skippable: true },
-    { name: "q5_convinced", label: "Q5 · What convinced them", type: "checkbox", required: true, max: 2, hasOther: true, otherKey: "q5_convinced_other", otherLabel: "Other", otherRequiresText: true },
-    { name: "q6_disappointment", label: "Q6 · Feeling if no longer available", type: "radio", required: true },
-    { name: "q7_age", label: "Q7 · Age", type: "radio", required: true },
-    { name: "q8_identity", label: "Q8 · Identity", type: "radio", required: true, hasOther: true, otherKey: "q8_identity_other", otherLabel: "Non-binary / prefer to self-describe", otherRequiresText: false },
+    { name: "q1_main_reason", label: "Q1 · Main reason for buying", type: "radio", required: false, hasOther: true, otherKey: "q1_main_reason_other", otherLabel: "Other" },
+    { name: "q2_trigger", label: "Q2 · What was going on in life", type: "text", required: false },
+    { name: "q3_fear", label: "Q3 · Biggest fear / frustration", type: "text", required: false },
+    { name: "q4_tried", label: "Q4 · What they tried & why it failed", type: "text", required: false },
+    { name: "q5_convinced", label: "Q5 · What convinced them", type: "checkbox", required: false, max: 2, hasOther: true, otherKey: "q5_convinced_other", otherLabel: "Other" },
+    { name: "q6_disappointment", label: "Q6 · Feeling if no longer available", type: "radio", required: false },
+    { name: "q7_age", label: "Q7 · Age", type: "radio", required: false },
+    { name: "q8_identity", label: "Q8 · Identity", type: "radio", required: false, hasOther: true, otherKey: "q8_identity_other", otherLabel: "Non-binary / prefer to self-describe" },
   ];
 
   // ----- Session identity (persisted so a row can be upserted) -----
@@ -300,7 +300,6 @@
     const n = done ? total : idx + 1;
     const pct = Math.round((n / total) * 100);
     progressFill.style.width = pct + "%";
-    progressPct.textContent = pct + "%";
     progressLabel.textContent = done ? "All done" : "Question " + (idx + 1) + " of " + total;
     if (progressBar) progressBar.setAttribute("aria-valuenow", String(n));
   }
@@ -310,7 +309,6 @@
       s.hidden = i !== current;
     });
     backBtn.hidden = current === 0;
-    skipBtn.hidden = !QUESTIONS[current].skippable;
     const last = current === total - 1;
     nextLabel.textContent = last ? "Finish & submit" : "Continue";
     setProgress(current, false);
@@ -352,13 +350,6 @@
 
   backBtn.addEventListener("click", function () {
     if (current > 0) goTo(current - 1, true);
-  });
-
-  skipBtn.addEventListener("click", function () {
-    const fs = form.querySelector('fieldset[data-q="' + QUESTIONS[current].name + '"]');
-    if (fs) fs.classList.remove("invalid");
-    savePartial();
-    goTo(current + 1, true);
   });
 
   form.addEventListener("submit", function (e) {

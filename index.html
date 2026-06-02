@@ -18,30 +18,27 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <main class="page">
-      <!-- Persistent top bar: brand + progress -->
-      <div class="topbar">
+    <!-- Persistent full-width top bar: brand + label + progress -->
+    <header class="topbar">
+      <div class="topbar-inner">
         <a class="brand" href="https://toothpod.co/" target="_blank" rel="noopener" aria-label="Toothpod">
           <img class="brand-logo" src="assets/toothpod-logo-light.svg" alt="Toothpod" width="160" height="62" />
         </a>
-        <div class="progress" role="group" aria-label="Survey progress">
-          <div class="progress-meta">
-            <span id="progress-label">Question 1 of 8</span>
-            <span class="progress-pct" id="progress-pct">12%</span>
-          </div>
-          <div
-            class="progress-track"
-            role="progressbar"
-            aria-valuemin="0"
-            aria-valuemax="8"
-            aria-valuenow="1"
-            aria-label="Questions completed"
-          >
-            <div class="progress-fill" id="progress-fill"></div>
-          </div>
-        </div>
+        <span class="progress-label" id="progress-label">Question 1 of 8</span>
       </div>
+      <div
+        class="progress-track"
+        role="progressbar"
+        aria-valuemin="0"
+        aria-valuemax="8"
+        aria-valuenow="1"
+        aria-label="Survey progress"
+      >
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+    </header>
 
+    <main class="page">
       <form id="survey" novalidate>
         <!-- ===== Step 1 — Welcome + Q1 ===== -->
         <section class="step" data-step="0">
@@ -203,7 +200,6 @@
         <!-- ===== Navigation ===== -->
         <div class="actions">
           <button type="button" class="nav-back" id="nav-back" hidden>Back</button>
-          <button type="button" class="skip-link" id="skip-link" hidden>Skip this question</button>
           <span class="spacer"></span>
           <button type="submit" class="submit-btn" id="nav-next">
             <span class="submit-label">Continue</span>
