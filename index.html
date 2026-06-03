@@ -86,10 +86,29 @@
           </fieldset>
         </section>
 
-        <!-- ===== Step 2 — Q2 ===== -->
+        <!-- ===== Step 2 — Q2 (multi-select, up to 2) ===== -->
         <section class="step" data-step="1" hidden>
-          <fieldset class="q" data-q="q2_trigger">
-            <legend><span class="q-num">Q2</span>What was going on in your life that made you start looking for something like Toothpod?</legend>
+          <fieldset class="q" data-q="q2_convinced" data-max="2">
+            <legend><span class="q-num">Q2</span>What convinced you that Toothpod would work for you?</legend>
+            <span class="q-hint">Choose up to 2.</span>
+            <div class="options">
+              <label class="opt"><input type="checkbox" name="q2_convinced" value="The science behind the ingredients (hydroxyapatite, xylitol, etc.)" /><span>The science behind the ingredients (hydroxyapatite, xylitol, etc.)</span></label>
+              <label class="opt"><input type="checkbox" name="q2_convinced" value="A dentist or hygienist backing or recommending it" /><span>A dentist or hygienist backing or recommending it</span></label>
+              <label class="opt"><input type="checkbox" name="q2_convinced" value="Clinical research & statistics" /><span>Clinical research &amp; statistics</span></label>
+              <label class="opt"><input type="checkbox" name="q2_convinced" value="How clearly the brand explained what it does and why it works" /><span>How clearly the brand explained what it does and why it works</span></label>
+              <label class="opt opt-other">
+                <input type="checkbox" name="q2_convinced" value="__other__" data-other-target="q2_convinced_other" />
+                <span>Something else</span>
+                <input type="text" class="other-input" name="q2_convinced_other" placeholder="Tell us what convinced you&hellip;" aria-label="What else convinced you" />
+              </label>
+            </div>
+          </fieldset>
+        </section>
+
+        <!-- ===== Step 3 — Q3 ===== -->
+        <section class="step" data-step="2" hidden>
+          <fieldset class="q" data-q="q3_trigger">
+            <legend><span class="q-num">Q3</span>What was going on in your life that made you start looking for something like Toothpod?</legend>
             <p class="q-help">
               A real story is more useful to us than a polished answer.
             </p>
@@ -99,52 +118,33 @@
               enamel wear at my last cleaning. I&rsquo;d tried whitening strips and they made my teeth hurt, so I started
               searching for something gentler.&rdquo;
             </p>
-            <textarea name="q2_trigger" placeholder="Tell us your story&hellip;"></textarea>
-          </fieldset>
-        </section>
-
-        <!-- ===== Step 3 — Q3 ===== -->
-        <section class="step" data-step="2" hidden>
-          <fieldset class="q" data-q="q3_fear">
-            <legend><span class="q-num">Q3</span>Before you found Toothpod, what was your biggest fear or frustration about your oral health?</legend>
-            <p class="q-help">
-              What kept coming back to bother you? It could be a specific worry (cavities, sensitivity,
-              gum recession), an embarrassment, a frustration with
-              your routine (can&rsquo;t brush at work), or something else entirely.
-            </p>
-            <textarea name="q3_fear" placeholder="What worried or frustrated you most&hellip;"></textarea>
+            <textarea name="q3_trigger" placeholder="Tell us your story&hellip;"></textarea>
           </fieldset>
         </section>
 
         <!-- ===== Step 4 — Q4 ===== -->
         <section class="step" data-step="3" hidden>
-          <fieldset class="q" data-q="q4_tried">
-            <legend><span class="q-num">Q4</span>Before Toothpod, what did you try to solve that fear/frustration with and why didn&rsquo;t it work?</legend>
+          <fieldset class="q" data-q="q4_fear">
+            <legend><span class="q-num">Q4</span>Before you found Toothpod, what was your biggest fear or frustration about your oral health?</legend>
+            <p class="q-help">
+              What kept coming back to bother you? It could be a specific worry (cavities, sensitivity,
+              gum recession), an embarrassment, a frustration with
+              your routine (can&rsquo;t brush at work), or something else entirely.
+            </p>
+            <textarea name="q4_fear" placeholder="What worried or frustrated you most&hellip;"></textarea>
+          </fieldset>
+        </section>
+
+        <!-- ===== Step 5 — Q5 ===== -->
+        <section class="step" data-step="4" hidden>
+          <fieldset class="q" data-q="q5_tried">
+            <legend><span class="q-num">Q5</span>Before Toothpod, what did you try to solve that fear/frustration with and why didn&rsquo;t it work?</legend>
             <p class="q-help">
               List anything you tried; mouthwash, whitening strips, hydroxyapatite toothpaste,
               regular gum, oil pulling, or simply
               doing nothing. Then tell us why it didn't work for you.
             </p>
-            <textarea name="q4_tried" placeholder="What you tried, and why it fell short&hellip;"></textarea>
-          </fieldset>
-        </section>
-
-        <!-- ===== Step 5 — Q5 (multi-select, up to 2) ===== -->
-        <section class="step" data-step="4" hidden>
-          <fieldset class="q" data-q="q5_convinced" data-max="2">
-            <legend><span class="q-num">Q5</span>What convinced you that Toothpod would work for you?</legend>
-            <span class="q-hint">Choose up to 2.</span>
-            <div class="options">
-              <label class="opt"><input type="checkbox" name="q5_convinced" value="The science behind the ingredients (hydroxyapatite, xylitol, etc.)" /><span>The science behind the ingredients (hydroxyapatite, xylitol, etc.)</span></label>
-              <label class="opt"><input type="checkbox" name="q5_convinced" value="A dentist or hygienist backing or recommending it" /><span>A dentist or hygienist backing or recommending it</span></label>
-              <label class="opt"><input type="checkbox" name="q5_convinced" value="Clinical research & statistics" /><span>Clinical research &amp; statistics</span></label>
-              <label class="opt"><input type="checkbox" name="q5_convinced" value="How clearly the brand explained what it does and why it works" /><span>How clearly the brand explained what it does and why it works</span></label>
-              <label class="opt opt-other">
-                <input type="checkbox" name="q5_convinced" value="__other__" data-other-target="q5_convinced_other" />
-                <span>Something else</span>
-                <input type="text" class="other-input" name="q5_convinced_other" placeholder="Tell us what convinced you&hellip;" aria-label="What else convinced you" />
-              </label>
-            </div>
+            <textarea name="q5_tried" placeholder="What you tried, and why it fell short&hellip;"></textarea>
           </fieldset>
         </section>
 

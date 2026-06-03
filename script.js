@@ -43,10 +43,10 @@
   // answering. Partial answers are still captured per step.
   const QUESTIONS = [
     { name: "q1_main_reason", label: "Q1 · Main reason for buying", type: "radio", required: false, hasOther: true, otherKey: "q1_main_reason_other", otherLabel: "Other" },
-    { name: "q2_trigger", label: "Q2 · What was going on in life", type: "text", required: false },
-    { name: "q3_fear", label: "Q3 · Biggest fear / frustration", type: "text", required: false },
-    { name: "q4_tried", label: "Q4 · What they tried & why it failed", type: "text", required: false },
-    { name: "q5_convinced", label: "Q5 · What convinced them", type: "checkbox", required: false, max: 2, hasOther: true, otherKey: "q5_convinced_other", otherLabel: "Other" },
+    { name: "q2_convinced", label: "Q2 · What convinced them", type: "checkbox", required: false, max: 2, hasOther: true, otherKey: "q2_convinced_other", otherLabel: "Other" },
+    { name: "q3_trigger", label: "Q3 · What was going on in life", type: "text", required: false },
+    { name: "q4_fear", label: "Q4 · Biggest fear / frustration", type: "text", required: false },
+    { name: "q5_tried", label: "Q5 · What they tried & why it failed", type: "text", required: false },
     { name: "q6_disappointment", label: "Q6 · Feeling if no longer available", type: "radio", required: false },
     { name: "q7_age", label: "Q7 · Age", type: "radio", required: false },
     { name: "q8_identity", label: "Q8 · Identity", type: "radio", required: false, hasOther: true, otherKey: "q8_identity_other", otherLabel: "Non-binary / prefer to self-describe" },
